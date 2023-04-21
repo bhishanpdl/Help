@@ -7,3 +7,17 @@ df.agg(
     SalesForMonth01 = ('Sales', lambda ser: ser[df.Month==1].sum())
 )
 ```
+
+# groupby
+```python
+df.groupby('A').agg(  
+    is_begin_same = ('BeginDate', lambda x: x.min()==x.max()),    
+    is_end_same = ('EndDate', lambda x: x.min()==x.max()),
+).reset_index()
+```
+
+# filter
+```python
+# use negative lookahead to filter columns
+df.filter(regex='^(?!.*(_min|_max)).*$')
+```
