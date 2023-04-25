@@ -6,7 +6,7 @@ SELECT
     COUNT(DISTINCT PatientApsID) AS num_patients
     
     
--- 2022 Oct 
-date_format(DATE_TRUNC('month', HSE_Created_Date),'yyyy MMM') AS year_month,
+-- M = 1 MM = 01 MMM = Jan  MMMM = January
+date_format(DATE_TRUNC('month', HSE_Created_Date),'yyyy MMM') AS year_month # 2022 Jan
 
 ```
