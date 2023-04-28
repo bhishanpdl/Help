@@ -1,3 +1,9 @@
+# applymap
+```python
+df = pd.DataFrame({ 'col1': [(1, 2), (3, 4), (5, 6)], 'col2': [(7, 8), (9, 10), (11, 12)] })
+df = df.applymap( lambda x: x[1]) # apply function to all the columns of dataframe
+```
+
 # agg with filters
 ```python
 df = pd.DataFrame({'Year': [2021, 2022, 2023, 2023],'Month': [1,2,1,2],'Sales': [100, 120, 130, 90]})
