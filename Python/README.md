@@ -1,3 +1,10 @@
+# System
+```python
+sys.getsizeof(myvar)
+cwd = os.getcwd()
+parent = os.path.dirname(cwd)
+```
+
 # kwargs
 ```python
 def another_function(a=5,b=6):
