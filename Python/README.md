@@ -19,7 +19,7 @@ import itertools
 
 flat = list(itertools.chain(*list_of_lists))
 flat = list(itertools.chain.from_iterable(list_of_lists))
-flat = [i for sublist in list_of_lists for i in sublist]
+flat = [i for sublist in list_of_lists for i in sublist] # (for i in sublist) is second for loop. (i for sublist in list_of_lists) is first one.
 ```
 
 # System
