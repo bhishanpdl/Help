@@ -2,6 +2,7 @@
 # Summary
 ```python
 functools.reduce(lambda s, r: s.replace(*r), rep, text.title()) # rep = [('from1','to1'),('frm2','to2')]
+unq_ordered_list = list(OrderedDict.fromkeys(chain(*[list1, list2, list3]))) 
 ```
 
 # Non duplicated combined list with order kept same
