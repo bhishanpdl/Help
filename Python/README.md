@@ -42,3 +42,16 @@ def func(arg1, **kw):
 
 func('hello',b=2,a=6)
 ```
+
+# Generalize multiple replaces
+```python
+import functools
+
+def func(text):
+    replacements = [('_', ' '), ('Json', 'JSON'), ('Sql', 'SQL')]
+    return functools.reduce(lambda s, r: s.replace(*r), replacements, text.title())
+
+# Example usage
+print(func('my_json_file_name')) # My JSON File Name
+#out = text.title().replace('_', ' ').replace('Json','JSON').replace('Sql','SQL')
+```
