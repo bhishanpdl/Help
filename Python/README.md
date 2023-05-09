@@ -1,4 +1,9 @@
 
+# Summary
+```python
+functools.reduce(lambda s, r: s.replace(*r), rep, text.title()) # rep = [('from1','to1'),('frm2','to2')]
+```
+
 # Non duplicated combined list with order kept same
 ```python
 from collections import OrderedDict
