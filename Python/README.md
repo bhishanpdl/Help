@@ -2,7 +2,15 @@
 # Non duplicated combined list with order kept same
 ```python
 from collections import OrderedDict
-combined_list = list(OrderedDict.fromkeys(list1 + list2 + list3))
+from itertools import chain
+from functools import reduce
+import numpy as np
+
+out = list(OrderedDict.fromkeys(list1 + list2 + list3)) # we can use + only for lists
+out = list(OrderedDict.fromkeys(chain.from_iterable([list1, list2, list3]))) # this works for all iterables
+
+out = reduce(lambda x, y: x + [i for i in y if i not in x], list_of_lists, [])
+out = np.unique(np.concatenate(list_of_lists), return_index=True)[0]
 ```
 
 # System
