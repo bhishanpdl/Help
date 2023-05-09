@@ -13,6 +13,15 @@ out = reduce(lambda x, y: x + [i for i in y if i not in x], list_of_lists, [])
 out = np.unique(np.concatenate(list_of_lists), return_index=True)[0]
 ```
 
+# Flat list
+```python
+import itertools
+
+flat = list(itertools.chain(*list_of_lists))
+flat = list(itertools.chain.from_iterable(list_of_lists))
+flat = [i for sublist in list_of_lists for i in sublist]
+```
+
 # System
 ```python
 sys.getsizeof(myvar)
