@@ -1,3 +1,10 @@
+# Column dtype str vs float
+```python
+pd.read_excel(ifile, dtype={'A': str})
+df['A Float'] = pd.to_numeric(df['A'], errors='coerce')
+df['A Str'] = df['A'].apply(lambda x: '{:08.2f}'.format(x))
+```
+
 # applymap
 ```python
 df = pd.DataFrame({ 'col1': [(1, 2), (3, 4), (5, 6)], 'col2': [(7, 8), (9, 10), (11, 12)] })
