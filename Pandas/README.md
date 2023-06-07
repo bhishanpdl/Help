@@ -1,3 +1,8 @@
+# Pandas Functions
+```python
+pd.crosstab(df['A'],df['B'], margins=True, margins_name="Total")
+```
+
 # Column dtype str vs float
 ```python
 pd.read_excel(ifile, dtype={'A': str})
