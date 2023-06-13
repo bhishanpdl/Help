@@ -1,7 +1,7 @@
 # databricks
 ```python
 %fs ls /databricks-datasets
-show tables in datascience
+%sql show tables in datascience
 
 %jupysql duckdb:///:memory:
 
