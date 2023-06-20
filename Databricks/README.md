@@ -13,6 +13,7 @@ sdf.write.option('overwriteSchema','true').mode('overwrite').saveAsTable('datasc
 
 # Read file from Azure Portal
 ```python
+!ls /dbfs/mnt/datascience/datascience/RXLightning
 %fs ls /mnt/datascience/datascience/RXLightning
 
 ifile = "/mnt/datascience/datascience/RXLightning/Billing Matrix_V1.csv"
