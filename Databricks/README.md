@@ -10,6 +10,17 @@ spark.createDataFrame(pandas_df)
 
 sdf.write.option('overwriteSchema','true').mode('overwrite').saveAsTable('datascience.test')
 ```
+
+# Read file from Azure Portal
+```python
+%fs ls /mnt/datascience/datascience/RXLightning
+
+ifile = "/mnt/datascience/datascience/RXLightning/Billing Matrix_V1.csv"
+bill = spark.read.option("header","true").csv(ifile).toPandas()
+
+bill.show(2)
+```
+
 # filter data
 ```python
 sdf.filter(F.lower(F.col('A')).like('%xx%'))
