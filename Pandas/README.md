@@ -2,6 +2,7 @@
 ```python
 pd.crosstab(df['A'],df['B'], margins=True, margins_name="Total")
 df['A'].apply([min,max])
+df.groupby('Country')['Date'].apply(lambda x: [x.min(), x.max()])
 ```
 
 # Column dtype str vs float
