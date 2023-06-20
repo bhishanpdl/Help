@@ -3,6 +3,14 @@
 pd.crosstab(df['A'],df['B'], margins=True, margins_name="Total")
 df['A'].apply([min,max])
 df.groupby('Country')['Date'].apply(lambda x: [x.min(), x.max()])
+
+# group by column and get value counts for categorical values
+cols_vc = ['C1','C2','C3']
+df.groupby('A').apply(lambda group: group[cols_vc].apply(pd.Series.value_counts)).unstack()
+
+# group by country and get totals for number columns
+cols_sum = ['F1', 'F2']
+df.groupby('A').apply(lambda group: group[cols_sum].sum(axis=0))
 ```
 
 # Column dtype str vs float
