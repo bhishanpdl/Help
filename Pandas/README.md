@@ -1,6 +1,7 @@
 # Pandas Functions
 ```python
 pd.crosstab(df['A'],df['B'], margins=True, margins_name="Total")
+df['A'].apply([min,max])
 ```
 
 # Column dtype str vs float
