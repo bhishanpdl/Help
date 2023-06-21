@@ -13,12 +13,19 @@ cols_sum = ['F1', 'F2']
 df.groupby('A').apply(lambda group: group[cols_sum].sum(axis=0))
 ```
 
-# Parse date format
+# Parse date format (converters, dtype, parse_dates)
 ```python
 def date_parser(date_string):
     return pd.to_datetime(date_string, format='%d/%m/%Y')
 df = pd.read_excel(ifile, dtype={'A': str}, converters={col_date: date_parser}) # using converters
 df = pd.read_csv(ifile,parse_dates=[col_date],date_format='%d/%m/%Y') # using date_format
+
+# example of converters
+import functools
+def func(age,param): 
+    return age+param
+converters = {'Age': functools.partial(func, param=10)}
+df = pd.read_excel(ifile,converters=converters)
 ```
 
 # Column dtype str vs float
