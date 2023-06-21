@@ -13,9 +13,17 @@ cols_sum = ['F1', 'F2']
 df.groupby('A').apply(lambda group: group[cols_sum].sum(axis=0))
 ```
 
+# Parse date format
+```python
+def date_parser(date_string):
+    return pd.to_datetime(date_string, format='%d/%m/%Y')
+df = pd.read_excel(ifile, dtype={'A': str}, converters={col_date: date_parser}) # using converters
+df = pd.read_csv(ifile,parse_dates=[col_date],date_format='%d/%m/%Y') # using date_format
+```
+
 # Column dtype str vs float
 ```python
-pd.read_excel(ifile, dtype={'A': str})
+df = pd.read_excel(ifile, dtype={'A': str}, converters={col_date: date_parser})
 df['A Float'] = pd.to_numeric(df['A'], errors='coerce')
 df['A Str'] = df['A'].apply(lambda x: '{:08.2f}'.format(x))
 ```
