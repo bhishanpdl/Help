@@ -64,3 +64,22 @@ df.groupby('A').agg(
 # use negative lookahead to filter columns
 df.filter(regex='^(?!.*(_min|_max)).*$')
 ```
+
+# groupby year+month
+```python
+df = pd.DataFrame({
+    "Country": ["US", "UK", "US"],
+    "Date": pd.to_datetime(["2023-01-01", "2023-02-01", "2023-01-02"])
+})
+
+(df.groupby('Country')
+ .apply(lambda row: row['Date'].dt.strftime('%Y-%m')
+        .value_counts()).unstack(0).sort_index()
+)
+
+# using pivot_table
+(df
+ .assign(Date_ym = lambda x: x['Date'].dt.strftime('%Y-%m'))
+ .pivot_table(index='Date_ym', columns='Country', aggfunc='size', fill_value=0).sort_index()
+)
+```
