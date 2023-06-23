@@ -82,4 +82,8 @@ df = pd.DataFrame({
  .assign(Date_ym = lambda x: x['Date'].dt.strftime('%Y-%m'))
  .pivot_table(index='Date_ym', columns='Country', aggfunc='size', fill_value=0).sort_index()
 )
+
+Country  UK  US     
+2023-01   0   2
+2023-02   1   0
 ```
