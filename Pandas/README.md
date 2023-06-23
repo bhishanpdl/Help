@@ -61,8 +61,9 @@ df.groupby('A').agg(
 
 # filter
 ```python
+df = pd.DataFrame(columns=['a','b','c_min','d_max','e_min_x'])
 # use negative lookahead to filter columns
-df.filter(regex='^(?!.*(_min|_max)).*$')
+df.filter(regex='^(?!.*(_min|_max)).*$') # only a and b (anything without _min and _max in columns)
 ```
 
 # groupby year+month
