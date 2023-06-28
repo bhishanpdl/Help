@@ -6,8 +6,8 @@ import lxml # needed for parsing behind the scene
 
 url = "https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html"
 r = requests.get(url,verify=False)
-df_list = pd.read_html(r.text) # this parses all the tables in webpages to a list
-df = df_list[0]
+dfs = pd.read_html(r.text)
+df = dfs[0]
 df.head()
 
 # save this table
