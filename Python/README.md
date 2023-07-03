@@ -1,4 +1,3 @@
-
 # Summary
 ```python
 functools.reduce(lambda s, r: s.replace(*r), rep, text.title()) # rep = [('from1','to1'),('frm2','to2')]
@@ -60,4 +59,16 @@ def func(text):
 # Example usage
 print(func('my_json_file_name')) # My JSON File Name
 #out = text.title().replace('_', ' ').replace('Json','JSON').replace('Sql','SQL')
+```
+
+# Paths
+```python
+# all csv files not starting with meta_
+path = Path(r"C:\Users\a126291\OneDrive - AmerisourceBergen(ABC)\GPS\p_982_Infinitus_Projections\output")
+files = [file for file in path.glob('*.csv') if not re.match(r'meta_', file.name)]
+len(files), files[0]
+
+# aliter
+files = glob.glob(r"C:\Users\a126291\OneDrive - AmerisourceBergen(ABC)\GPS\p_982_Infinitus_Projections\output\*.csv")
+files = [i for i in files if os.path.basename(i)[0:4]!='meta']
 ```
