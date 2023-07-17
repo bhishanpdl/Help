@@ -216,3 +216,18 @@ for item in np.array([1, 2, 3]):
     assert isinstance(item, Integral)
     assert not isinstance(item, int)  # These aren't really ints!
 ```
+
+# Constants
+```python
+class Constants:
+    def __init__(self):
+        self._CONST = 5
+
+    @property
+    def CONST(self):
+        return self._CONST
+
+consts = Constants()
+print(consts.CONST)  # Accessing the constant value
+consts.CONST = 'other value'  # This will raise an AttributeError
+```
