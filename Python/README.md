@@ -219,15 +219,22 @@ for item in np.array([1, 2, 3]):
 
 # Constants
 ```python
-class Constants:
-    def __init__(self):
-        self._CONST = 5
+class ConstantDescriptor:
+    def __init__(self, value):
+        self._value = value
 
-    @property
-    def CONST(self):
-        return self._CONST
+    def __get__(self, instance, owner):
+        return self._value
+
+    def __set__(self, instance, value):
+        raise AttributeError("Cannot modify constant value")
+
+class Constants:
+    CONST_1 = ConstantDescriptor(1)
+    CONST_2 = ConstantDescriptor(2)
 
 consts = Constants()
-print(consts.CONST)  # Accessing the constant value
-consts.CONST = 'other value'  # This will raise an AttributeError
+print(consts.CONST_1)  # Accessing the constant value
+print(consts.CONST_2)  # Accessing the constant value
+consts.CONST_1 = 'other value'  # This will raise an AttributeError
 ```
