@@ -1,3 +1,8 @@
+# Useful Operations
+```python
+df.apply(lambda row: row['A'] in row['B'], axis=1) # check if substring from columnA exists in columnB
+```
+
 # Pandas Functions
 ```python
 pd.crosstab(df['A'],df['B'], margins=True, margins_name="Total")
