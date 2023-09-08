@@ -19,6 +19,8 @@ spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "false")
 s_hse = spark.read.load('/mnt/databricksprod1/silver/hse/')
 s_hse_str = s_hse.select([s_hse[col].cast("string") for col in s_hse.columns])
 hse = s_hse_str.toPandas()
+del s_hse
+del s_hse_str
 ```
 
 # Read file from Azure Portal
