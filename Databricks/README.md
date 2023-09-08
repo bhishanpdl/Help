@@ -9,12 +9,16 @@ sdf.createOrReplaceTempView('sdf')
 spark.createDataFrame(pandas_df)
 
 sdf.write.option('overwriteSchema','true').mode('overwrite').saveAsTable('datascience.test')
+
+# some settings to read very big tables
+spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "false")
 ```
 
 # Spark read load a delta folder
 ```python
-spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "false")
-hse = spark.read.load('/mnt/databricksprod1/silver/hse/').toPandas()
+s_hse = spark.read.load('/mnt/databricksprod1/silver/hse/')
+s_hse_str = s_hse.select([s_hse[col].cast("string") for col in s_hse.columns])
+hse = s_hse_str.toPandas()
 ```
 
 # Read file from Azure Portal
