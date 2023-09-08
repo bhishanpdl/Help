@@ -13,6 +13,7 @@ sdf.write.option('overwriteSchema','true').mode('overwrite').saveAsTable('datasc
 
 # Spark read load a delta folder
 ```python
+spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "false")
 hse = spark.read.load('/mnt/databricksprod1/silver/hse/').toPandas()
 ```
 
