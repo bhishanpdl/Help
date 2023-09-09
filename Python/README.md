@@ -238,3 +238,29 @@ print(consts.CONST_1)  # Accessing the constant value
 print(consts.CONST_2)  # Accessing the constant value
 consts.CONST_1 = 'other value'  # This will raise an AttributeError
 ```
+
+# Transpose using modulo
+```python
+# using loop method
+ncols = 3
+keys = list('abcdefg')
+data = [ [] for i in range(ncols)]
+
+for i, key in enumerate(keys):
+  modulo = i%ncols
+  data[modulo].append(key)
+
+print(data)
+
+#=============== using numpy
+keys_array = np.array(keys)
+data = [list(keys_array[i::ncols]) for i in range(ncols)]
+
+#=============== using defaultdict(list)
+from collections import defaultdict
+dd = defaultdict(list)
+
+for i, key in enumerate(keys):
+    modulo = i % ncols
+    dd[modulo].append(key)
+```
