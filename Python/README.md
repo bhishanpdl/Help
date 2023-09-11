@@ -1,3 +1,9 @@
+# Summary
+```python
+dd = collections.defaultdict(list) # dd = defaultdict(dict); dd['a'] = 'b'
+itertools.cycle(list('abc')) # itertools: combinations, permutations, chain, groupby
+```
+
 # Some Python Features
 ```python
 # attributes that takes multiple values
@@ -263,4 +269,70 @@ dd = defaultdict(list)
 for i, key in enumerate(keys):
     modulo = i % ncols
     dd[modulo].append(key)
+```
+
+# Itertools: count,cycle,repeat,permutations,combinations,chain,groupby (Most are acheived by list comp)
+```python
+#======== count
+from itertools import count
+
+# Create an infinite counter starting at 1
+counter = count(start=1)
+
+# Generate the next 5 values
+for _ in range(5):
+    print(next(counter))
+
+#=========cycle
+from itertools import cycle
+
+colors = ['red', 'green', 'blue']
+color_cycle = cycle(colors)
+
+# Repeatedly cycle through the list
+for _ in range(8):
+    print(next(color_cycle))
+
+#==============repeat
+from itertools import repeat
+
+# Repeat the number 42 three times
+for num in repeat(42, times=3):
+    print(num)
+
+#=================permutations and combinations
+from itertools import combinations, permutations
+
+items = ['A', 'B', 'C']
+
+# Combinations without repetition
+for combo in combinations(items, 2):
+    print(combo)
+
+# Permutations (with repetition)
+for perm in permutations(items, 2):
+    print(perm)
+
+#========================chain
+from itertools import chain
+
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+
+# Chain two lists together
+combined = chain(list1, list2)
+
+for item in combined:
+    print(item)
+#======================groupby
+from itertools import groupby
+
+animals = ['cat', 'dog', 'elephant', 'bat', 'rat', 'ant']
+
+# Group words by their first letter
+grouped = groupby(animals, key=lambda x: x[0])
+
+for key, group in grouped:
+    print(key, list(group))
+
 ```
