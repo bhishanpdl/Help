@@ -34,6 +34,11 @@ def func(age,param):
     return age+param
 converters = {'Age': functools.partial(func, param=10)}
 df = pd.read_excel(ifile,converters=converters)
+
+#========== parse date column
+data = {'CreatedDate': ['2023-09-12 16:40:24.60024017', '2023-08-25 10:15:30.12345678']}
+df = pd.DataFrame(data)
+df['CreatedDate'] = pd.to_datetime(df['CreatedDate'], format='%Y-%m-%d %H:%M:%S.%f') # %f is microseconds with 0 padded format for 8 digits
 ```
 
 # Column dtype str vs float
