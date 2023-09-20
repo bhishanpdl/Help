@@ -101,3 +101,17 @@ Country  UK  US
 2023-01   0   2
 2023-02   1   0
 ```
+
+# replace multiple values
+```python
+na_values = ['na', 'NaN', ' ', '', 'nan' ]
+na_values_map = {i: 'null' for i in na_values}
+
+final2 = final.copy(deep=True)
+
+for col in final2.columns:
+    if final2[col].dtype == 'O':
+        final2[col] = final2[col].astype(str).map(na_values_map).fillna(final2[col])
+
+final2.head(2)
+```
