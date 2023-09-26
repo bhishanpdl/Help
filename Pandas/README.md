@@ -115,3 +115,14 @@ for col in final2.columns:
 
 final2.head(2)
 ```
+
+# Creating rank 1,2,3 from duplicate elements of a column
+```python
+df = pd.DataFrame({'Id': [1,1,2,3], 'Value': [10,20,30,40]})
+df['Id_Rank'] = df.groupby('Id').cumcount() + 1
+   Id  Value  Id_Rank
+0   1     10        1
+1   1     20        2
+2   2     30        1
+3   3     40        1
+```
