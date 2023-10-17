@@ -132,3 +132,8 @@ df.loc[lambda x: x[col].isin(dup_ids)][[df.columns[-1]] + list(df.columns[:-1])]
 2   2     30        1
 3   3     40        1
 ```
+
+# Get column names where values are null
+```python
+df[['A', 'B', 'C']].apply(lambda x: ','.join(x.index[x.eq('null')]), axis=1)
+```
