@@ -45,3 +45,10 @@ sdf.filter(F.col('A').rlike('(?i)xx')) # regex like ignorecase
 ```python
 df = sdf.select([sdf[col].cast("string") for col in sdf.columns]).toPandas()
 ```
+
+# Display Azure Portal stored images in notebook
+```python
+from PIL import Image
+img_path = "/dbfs/mnt/datascience/datascience/Eylea/Eylea_to_EyleaHD_Transition/eylea 01.png"
+display(Image.open(img_path))
+```
