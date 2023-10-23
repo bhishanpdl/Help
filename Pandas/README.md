@@ -137,3 +137,8 @@ df.loc[lambda x: x[col].isin(dup_ids)][[df.columns[-1]] + list(df.columns[:-1])]
 ```python
 df[['A', 'B', 'C']].apply(lambda x: ','.join(x.index[x.eq('null')]), axis=1)
 ```
+
+# Pivot and pivot_table: move values of a column to the columns
+```python
+df2 = df.pivot_table(index=['Site_ID', 'YearQtr'], columns='Product_Name', values='Record_ID', aggfunc='sum',fill_value=0).reset_index().rename_axis(None,axis=1).sort_values('YearQtr')
+```
