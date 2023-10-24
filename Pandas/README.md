@@ -7,6 +7,9 @@ df[A].astype(str).str.contains(substr, regex=False) # substr = '"name": "Annexus
 
 # move values of a column to columns
 df.pivot_table(index=['Site_ID', 'YearQtr'], columns='Product_Name', values='Record_ID', aggfunc='sum',fill_value=0).reset_index().rename_axis(None,axis=1)
+
+# rename value counts
+df['A'].value_counts().rename('count').rename_axis('A').reset_index()
 ```
 
 # Pandas Functions
