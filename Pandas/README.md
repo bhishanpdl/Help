@@ -3,7 +3,7 @@
 df.apply(lambda row: row['A'] in row['B'], axis=1) # check if substring from columnA exists in columnB
 df.loc[lambda x:  x['A'].astype(str).str.len() > 100 ].head(1) # select where column have some values
 df.filter(regex='time|TIME') # df.filter(like='time') # newer version also have case=True parameter.
-df[A].astype(str).str.contains(substr, regex=False) # substr = '"name": "AnnexusHealth"' works for json, but single Quote does not work.
+df['A]'.astype(str).str.contains(substr, regex=False) # substr = '"name": "AnnexusHealth"' works for json, but single Quote does not work.
 
 # move values of a column to columns
 df.pivot_table(index=['Site_ID', 'YearQtr'], columns='Product_Name', values='Record_ID', aggfunc='sum',fill_value=0).reset_index().rename_axis(None,axis=1)
