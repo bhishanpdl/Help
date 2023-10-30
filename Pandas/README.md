@@ -1,5 +1,6 @@
 # Useful Operations
 ```python
+df.groupby(['A', 'B'])[['C']].nunique().add_prefix("num_").reset_index() # groupby and add prefix
 df.apply(lambda row: row['A'] in row['B'], axis=1) # check if substring from columnA exists in columnB
 df.loc[lambda x:  x['A'].astype(str).str.len() > 100 ].head(1) # select where column have some values
 df.filter(regex='time|TIME') # df.filter(like='time') # newer version also have case=True parameter.
