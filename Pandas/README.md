@@ -15,7 +15,8 @@ df.pivot_table(index=['Site_ID', 'YearQtr'], columns='Product_Name', values='Rec
 df['A'].value_counts().rename('count').rename_axis('A').reset_index() # make column name and rename_axis SAME!!
 
 # date time operations
-df[col_date] - pd.DateOffset(years=1) - pd.Timestamp(days=5)
+ser = pd.date_range(start='2020-01-01',end='2020-01-05',freq='D')
+ser2 = ser - pd.DateOffset(years=1) + pd.Timedelta(days=10)
 ```
 
 # Pandas Functions
