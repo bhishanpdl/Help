@@ -17,6 +17,9 @@ df['A'].value_counts().rename('count').rename_axis('A').reset_index() # make col
 # date time operations
 ser = pd.date_range(start='2020-01-01',end='2020-01-05',freq='D')
 ser2 = ser - pd.DateOffset(years=1) + pd.Timedelta(days=10)
+
+# value counts with %
+df.groupby(['A','B'])['C'].value_counts(normalize=True).mul(100).round(2).astype(str).add('%').reset_index()
 ```
 
 # Pandas Functions
