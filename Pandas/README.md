@@ -25,6 +25,11 @@ ser2 = ser - pd.DateOffset(years=1) + pd.Timedelta(days=10)
 df.groupby(['A','B'])['C'].value_counts(normalize=True).mul(100).round(2).astype(str).add('%').reset_index()
 ```
 
+# Pandas Datetime
+```python
+pd.Timestamp('2020-01-01') + pd.DateOffset(years=1) + pd.Timedelta(days=5)
+```
+
 # Pandas Functions
 ```python
 pd.crosstab(df['A'],df['B'], margins=True, margins_name="Total")
