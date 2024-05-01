@@ -1,7 +1,7 @@
 # Refresh Your Python Knowledge
 ```python
 hasattr(list, 'append')
-dir(list)
+print([i for i in dir(list) if i[0]!='_'])
 if my_variable in globals(): pass
 ```
 
