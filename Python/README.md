@@ -1,3 +1,10 @@
+# Refresh Your Python Knowledge
+```python
+hasattr(list, 'append')
+dir(list)
+if my_variable in globals(): pass
+```
+
 # Summary
 ```python
 dd = collections.defaultdict(list) # dd = defaultdict(dict); dd['a'] = 'b'
