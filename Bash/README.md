@@ -13,3 +13,10 @@ ls -1 *.csv | sort -r
 egrep -ni "keyboard" ~/.bashrc
 sed -n '114{p;q}' ~/.bashrc # p=print q=quit
 ```
+
+# Grep Commands
+```bash
+# i=case insensitive, w=exact word (not part), n = show line number
+grep -iwn "template_05" util_models.py
+
+```
